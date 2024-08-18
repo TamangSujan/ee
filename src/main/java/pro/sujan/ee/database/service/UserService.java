@@ -1,5 +1,7 @@
 package pro.sujan.ee.database.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.spi.PersistenceUnitInfo;
 import pro.sujan.ee.database.Database;
@@ -7,9 +9,12 @@ import pro.sujan.ee.database.entity.UserEntity;
 import pro.sujan.ee.database.persistence.units.UserPersistenceUnit;
 import pro.sujan.ee.database.utils.DatabaseTransaction;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class UserService implements EntityService<UserEntity, Integer> {
+@Named
+@ApplicationScoped
+public class UserService implements EntityService<UserEntity, Integer>, Serializable {
     @Override
     public void save(UserEntity user) {
         EntityManager userManager = Database.getEntityManager(getPersistenceUnit());

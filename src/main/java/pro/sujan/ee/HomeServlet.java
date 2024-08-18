@@ -1,6 +1,6 @@
 package pro.sujan.ee;
 
-import jakarta.servlet.ServletException;
+import jakarta.inject.Inject;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import pro.sujan.ee.database.entity.UserEntity;
@@ -8,15 +8,13 @@ import pro.sujan.ee.database.service.UserService;
 import pro.sujan.ee.response.ResponseSender;
 import pro.sujan.ee.security.utils.TextSanitizer;
 
-import java.io.IOException;
 import java.util.List;
 
 @WebServlet(value = "/home")
 public class HomeServlet extends HttpServlet {
-    private final UserService userService;
-    public HomeServlet(){
-        userService = new UserService();
-    }
+    @Inject
+    private UserService userService;
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         ResponseSender.sendPage(request, response, "home.jsp");
     }
