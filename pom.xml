@@ -24,6 +24,7 @@
             <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>
+        <!--ORM - Persistence API using Hibernate-->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
@@ -35,10 +36,17 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.0.2.Final</version>
         </dependency>
+        <!--CDI like @Inject-->
         <dependency>
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
             <version>3.0.1</version>
+        </dependency>
+        <!--Apis like @Get, @Post-->
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -55,6 +63,7 @@
     </dependencies>
 
     <build>
+        <finalName>ee</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
