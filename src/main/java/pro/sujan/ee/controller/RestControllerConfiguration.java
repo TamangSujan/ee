@@ -12,6 +12,7 @@ public class RestControllerConfiguration extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<>();
         classes.add(RestController.class);
+        classes.add(JsonController.class);
         return classes;
     }
 }

@@ -6,7 +6,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/test")
+@Path("/test/api")
 public class RestController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
