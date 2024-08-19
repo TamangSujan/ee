@@ -60,6 +60,12 @@
             <artifactId>jakarta.json.bind-api</artifactId>
             <version>3.0.1</version>
         </dependency>
+        <!--Class XML-->
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.2</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
