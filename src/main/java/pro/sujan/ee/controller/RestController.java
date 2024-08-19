@@ -1,15 +1,19 @@
 package pro.sujan.ee.controller;
 
+import jakarta.json.Json;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("/rest/controller/get")
+@Path("/test")
 public class RestController {
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String getHome(){
-        return "Hello";
+        return Json.createObjectBuilder()
+                .add("key", "value")
+                .build()
+                .toString();
     }
 }
