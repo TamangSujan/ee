@@ -3,6 +3,8 @@ package pro.sujan.ee;
 import jakarta.inject.Inject;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import pro.sujan.ee.beans.UserBean;
+import pro.sujan.ee.beans.validator.BeanValidator;
 import pro.sujan.ee.database.entity.UserEntity;
 import pro.sujan.ee.database.service.UserService;
 import pro.sujan.ee.response.ResponseSender;
@@ -16,6 +18,9 @@ public class HomeServlet extends HttpServlet {
     private UserService userService;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
+        List<String> errors = BeanValidator.getErrorsOnValidation(getTestUserBean());
+        for(String error: errors)
+            System.err.println(error);
         ResponseSender.sendPage(request, response, "home.jsp");
     }
 
@@ -31,5 +36,12 @@ public class HomeServlet extends HttpServlet {
         user.setName(username);
         user.setPassword(password);
         return user;
+    }
+
+    private UserBean getTestUserBean(){
+        UserBean userBean = new UserBean();
+        //userBean.setUsername("Us");
+        userBean.setPassword("us");
+        return userBean;
     }
 }
